@@ -1,4 +1,4 @@
-chip S774 PAL16R4
+chip JCART PAL16R4
 
 CLK=1 i2=2 i3=3 i4=4 i5=5 i6=6 i7=7 i8=8 i9=9 GND=10 /OE=11 o12=12
 o13=13 rf14=14 rf15=15 rf16=16 rf17=17 o18=18 o19=19 VCC=20
@@ -15,10 +15,15 @@ rf17.oe = OE
 rf16.oe = OE
 /rf15 := GND
 rf15.oe = OE
-/rf14 := /i2 * /i3 * i4 * /i5 * /i7 * i8 * i9 * o19 + 
-		/o13 * /rf14 + 
-		/i6 * /rf14 + 
-		i5 * /rf14
+; /rf14 should default to low, but I could not find a way to force the GAL to do it
+/rf14 := /i2 * /i3 * i4 * /i5 * i6 * /i7 * i8 * i9 +
+		i2 * /rf14 +
+		i3 * /rf14 +
+		/i4 * /rf14 +
+		i5 * /rf14 +
+		/i6 * /rf14 +
+		/i8 * /rf14 +
+		/i9 * /rf14
 rf14.oe = OE
 /o13 = /i5 * /i9 +
 	   /i5 * /i8 +
@@ -26,5 +31,4 @@ rf14.oe = OE
 	   i3 * /i5 +
 	   i2 * /i5
 o13.oe = vcc
-/o12 = i4
-o12.oe = vcc
+
