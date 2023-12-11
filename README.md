@@ -7,3 +7,7 @@ I found this cart at the fleamarket. I think adding two game ports to a Megadriv
 TODO: Write a decent intro.
 
 ![JCart PCB](pics/jcart_pcb.jpg)
+
+## Credits
+
+- Cart edge symbol from [FeRAM](https://github.com/soniccd123/Genesis-FeRAM-Cart/)
