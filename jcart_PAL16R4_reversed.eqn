@@ -1,35 +1,35 @@
 chip JCART PAL16R4
 
-CLK=1 i2=2 i3=3 i4=4 i5=5 i6=6 i7=7 i8=8 i9=9 GND=10 /OE=11 o12=12
-o13=13 rf14=14 rf15=15 rf16=16 rf17=17 o18=18 o19=19 VCC=20
+CLK=1 A23=2 A22=3 A21=4 CART_CE=5 CART_OE=6 D0=7 A20=8 A19=9 GND=10 /OE=11 o12=12
+ROM_E=13 PAD_SELECT=14 rf15=15 rf16=16 rf17=17 XCVR1_OE=18 XCVR2_OE=19 VCC=20
 
 equations
 
-/o19 = /i2 * /i3 * i4 * /i5 * /i6 * i8 * i9
-o19.oe = vcc
-/o18 = /i2 * /i3 * i4 * /i5 * /i6 * i8 * i9
-o18.oe = vcc
+/XCVR2_OE = A19 * A20 * A21 * /A22 * /A23 * /CART_CE * /CART_OE
+XCVR2_OE.oe = vcc
+/XCVR1_OE = A19 * A20 * A21 * /A22 * /A23 * /CART_CE * /CART_OE
+XCVR1_OE.oe = vcc
 /rf17 := GND
 rf17.oe = OE
 /rf16 := GND
 rf16.oe = OE
 /rf15 := GND
 rf15.oe = OE
-; /rf14 should default to low at power-on, but I could not find a way to force the GAL to do it
-/rf14 := /i2 * /i3 * i4 * /i5 * i6 * /i7 * i8 * i9 +
-		i2 * /rf14 +
-		i3 * /rf14 +
-		/i4 * /rf14 +
-		i5 * /rf14 +
-		/i6 * /rf14 +
-		/i8 * /rf14 +
-		/i9 * /rf14
-rf14.oe = OE
-/o13 = /i5 * /i9 +
-	   /i5 * /i8 +
-	   /i4 * /i5 +
-	   i3 * /i5 +
-	   i2 * /i5
-o13.oe = vcc
+; /PAD_SELECT should default to low at power-on, but I could not find a way to force the GAL to do it
+/PAD_SELECT :=	A19 * A20 * A21 * /A22 * /A23 * /CART_CE * CART_OE * /D0 +
+				/A19 * /PAD_SELECT +
+				/A20 * /PAD_SELECT +
+				/A21 * /PAD_SELECT +
+				A22 * /PAD_SELECT +
+				A23 * /PAD_SELECT +
+				CART_CE * /PAD_SELECT +
+				/CART_OE * /PAD_SELECT
+PAD_SELECT.oe = OE
+/ROM_E =	/CART_CE * /A19 +
+			/CART_CE * /A20 +
+			/A21 * /CART_CE +
+			A22 * /CART_CE +
+			A23 * /CART_CE
+ROM_E.oe = vcc
 
 
