@@ -1,0 +1,10 @@
+Connections
+CLK -> Vclk
+i2 -> VA23
+i3 -> VA22
+i4 -> VA21
+i5 -> /CE0
+i6 -> /CAS0
+i7 -> VD0
+i8 -> VA20
+i9 -> VA19
