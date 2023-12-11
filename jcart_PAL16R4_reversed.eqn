@@ -15,7 +15,7 @@ rf17.oe = OE
 rf16.oe = OE
 /rf15 := GND
 rf15.oe = OE
-; /rf14 should default to low, but I could not find a way to force the GAL to do it
+; /rf14 should default to low at power-on, but I could not find a way to force the GAL to do it
 /rf14 := /i2 * /i3 * i4 * /i5 * i6 * /i7 * i8 * i9 +
 		i2 * /rf14 +
 		i3 * /rf14 +
@@ -31,4 +31,5 @@ rf14.oe = OE
 	   i3 * /i5 +
 	   i2 * /i5
 o13.oe = vcc
+
 

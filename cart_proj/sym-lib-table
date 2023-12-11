@@ -1,0 +1,6 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "Cart_FeRAM")(type "KiCad")(uri "${KIPRJMOD}/ext/Cart_FeRAM.kicad_sym")(options "")(descr ""))
+  (lib (name "Logic_Programmable_custom")(type "KiCad")(uri "${KIPRJMOD}/ext/Logic_Programmable_custom.kicad_sym")(options "")(descr ""))
+  (lib (name "Custom_EPROM")(type "KiCad")(uri "${KIPRJMOD}/ext/Custom_EPROM.kicad_sym")(options "")(descr ""))
+)
