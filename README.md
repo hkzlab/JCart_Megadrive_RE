@@ -8,6 +8,10 @@ TODO: Write a decent intro.
 
 ![JCart PCB](pics/jcart_pcb.jpg)
 
+## Notes
+
+- Notes on the memory mapping of this cart can be found in the [MAME repository](https://github.com/mamedev/mame/blob/master/src/devices/bus/megadrive/jcart.cpp)
+
 ## Credits
 
 - Cart edge symbol from [FeRAM](https://github.com/soniccd123/Genesis-FeRAM-Cart/)
